@@ -1,0 +1,334 @@
+/* ===== */
+/* FONTS */
+/* ===== */
+
+@font-face {
+	font-family: "mario";
+	src: url("../fonts/mario.ttf");
+}
+
+@font-face {
+	font-family: "segoe ui";
+	src: url("../fonts/segoeui.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "segoe ui";
+	src: url("../fonts/segoeuib.ttf");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "segoe ui";
+	src: url("../fonts/segoeuii.ttf");
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "segoe ui";
+	src: url("../fonts/segoeuiz.ttf");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face{
+	font-family: "8bitoperator";
+	src: url('../fonts/8bitOperatorPlus-Bold.ttf') format('truetype');
+}
+
+/* ================ */
+/* BACKGROUND STUFF */
+/* ================ */
+
+#space1, #space2, #spinner, #carousel, #ground, #hall {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+	
+	position: fixed;
+	width:  100%;
+	height: 100%;
+	top: 0px;
+	
+	z-index: -1;
+}
+
+@keyframes space {
+	from {background-position:	 0px 50%;}
+	to   {background-position: -1920px 50%;}
+}
+
+#space1, #space2 {
+	background-image: url("../img/stars1.png");
+	background-repeat: repeat;
+	background-position: 0px 50%;
+	background-size: 1920px 960px;
+	
+	animation: space 4s linear infinite;
+	width:  100%;
+	height: 100%;
+}
+
+#space2 {
+	background-image: url("../img/stars2.png");
+	animation: space 3s linear infinite;
+}
+
+@keyframes carousel {
+	from {background-position:	 0px 50%;}
+	to   {background-position: -1280px 50%;}
+}
+
+#carousel {
+	background-image: url("../img/carousel.png");
+	background-repeat: repeat-x;
+	background-position: 0px 50%;
+	background-size: 2560px 100%;
+	
+	animation: carousel 1.25s linear infinite;
+	width:  100%;
+	height: 100%;
+}
+
+@keyframes threedee {
+	from {transform: rotateX(70deg) rotateZ(  0deg);}
+	to   {transform: rotateX(70deg) rotateZ(360deg);}
+}
+
+#ground {
+	height: initial;
+	
+	transform: rotateX(70deg) rotateZ(0deg);
+	animation: threedee 32s linear infinite;
+}
+
+#hall {
+	background-image: url("../img/hall.png");
+	background-repeat: repeat-x;
+	background-position: 0px 50%;
+	background-size: 1836px 960px;
+	
+	width:  100%;
+	height: 100%;
+}
+
+/* ======== */
+/* MAIN CSS */
+/* ======== */
+
+body {
+	display: block;
+	font-family: segoe ui;
+	background-color: #000; /*#222;*/
+}
+
+img {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}
+
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+#main {
+	border: 5px solid #fff;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+	
+	/* width: -webkit-fill-available; */
+	width: fit-content;
+	margin-bottom: 50px;
+	padding-left: 15px;
+	padding-right: 10px;
+	
+	color: #ccc;
+	background-color: rgba(0, 0, 0, 0.9);
+	
+	position: relative;
+	display: flex;
+}
+
+#main, #buttonContainer {
+	opacity: 0;
+	animation: fadein 0.75s 0.5s forwards linear 1;
+}
+
+body.background2 #main {
+	border: 4px solid #fff;
+	/* outline: 2px solid #9DA2C4; */
+	box-shadow: 0px 0px 0px 2px #9DA2C4;
+	border-radius: 20px;
+}
+
+/* deltarune box corners */
+@keyframes drcorner {
+	  10% {background-image: url("../img/corner_1.png");}
+	  35% {background-image: url("../img/corner_2.png");}
+	  60% {background-image: url("../img/corner_3.png");}
+	  85% {background-image: url("../img/corner_4.png");}
+	  90% {background-image: url("../img/corner_5.png");}
+	 100% {background-image: url("../img/corner_5.png");}
+}
+#tl, #tr, #bl, #br {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+	
+	background-image: url("../img/corner_1.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 26px 26px;
+	
+	width:  26px;
+	height: 26px;
+	
+	position: absolute;
+	animation: drcorner 2s infinite alternate;
+}
+#tl {
+	top:	-12px;
+	left:   -12px;
+}
+#tr {
+	top:	-12px;
+	right:  -12px;
+	transform: rotate(90deg);
+}
+#bl {
+	bottom: -12px;
+	left:   -12px;
+	transform: rotate(270deg);
+}
+#br {
+	bottom: -12px;
+	right:  -12px;
+	transform: rotate(180deg);
+}
+
+#contacts {
+	margin-top: auto;
+	margin-bottom: 16px;
+}
+
+#contacts img {
+	filter: drop-shadow(1px 1px #fff) drop-shadow(-1px -1px #fff) drop-shadow(1px -1px #fff) drop-shadow(-1px 1px #fff);
+}
+
+b, a,
+h1, h2, h3, h4, h5 {
+	color: #fff;
+}
+
+h1, h2 {
+	font-family: mario;
+}
+
+#page {
+	display: inline-block;
+	top: 0px;
+	left: 0px;
+	width: inherit;
+	
+	position: relative;
+	display: block;
+}
+
+#buttonContainer {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -10px;
+	margin-bottom: 20px;
+	
+	display: flex;
+	max-width: 1192px;
+}
+
+#buttonContainer > * {
+	margin: auto;
+	display: block;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+}
+
+/* ================ */
+/* IN-PAGE CONTENTS */
+/* ================ */
+
+a {
+	font-weight: bold;
+}
+
+a.external::after {
+	content: url("../img/external_dark.png");
+	margin-left: 2px;
+}
+
+a:not(.external):visited {
+	text-decoration: none;
+	color: #95F;
+}
+
+a.external:visited {
+	color: #7740CF;
+}
+
+#main a:not(:visited)[href] {
+	color: #59F;
+}
+
+
+
+.separator {
+	background-color: #e0e0e0;
+	left: 15px;
+	right: 15px;
+	height: 2px;
+	margin-bottom: 22px;
+}
+
+
+
+.roundbutton {
+	background: #111;
+	border-radius: 15px;
+	border: 1px solid #444;
+	text-align: center;
+	line-height: 18px;
+	display: table-caption;
+	padding: 10px;
+	width: max-content;
+}
+
+.roundbutton a {
+	text-decoration: none;
+}
+
+
+
+.row {
+	display: flex;
+}
+
+.column {
+	display: flex;
+	flex: 50%;
+	flex-direction: column;
+}
+
+
+
+h1, h2, h3, h4, h5 {
+	margin-bottom: -0.25em;
+}
+
+p {
+	overflow: auto;
+	margin: 1em 0px;
+}
