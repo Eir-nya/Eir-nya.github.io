@@ -126,7 +126,7 @@ body {
 	background-color: #000; /*#222;*/
 }
 
-img {
+img:not(#cat) {
 	image-rendering: -moz-crisp-edges;
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
@@ -218,6 +218,9 @@ body.background2 #main {
 }
 
 #contacts img {
+	image-rendering: auto;
+}
+#contacts img:not(#yt) {
 	filter: drop-shadow(1px 1px #fff) drop-shadow(-1px -1px #fff) drop-shadow(1px -1px #fff) drop-shadow(-1px 1px #fff);
 }
 
