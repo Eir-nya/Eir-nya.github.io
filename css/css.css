@@ -144,6 +144,7 @@ img:not(#cat) {
 	margin-top: 60px;
 	
 	/* width: -webkit-fill-available; */
+	width: -moz-fit-content;
 	width: fit-content;
 	margin-bottom: 50px;
 	padding-left: 15px;
